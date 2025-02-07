@@ -9,15 +9,22 @@ export default function Home() {
     trackPageView(window.location.pathname)
   }, [])
 
+  const handleRedirect = (action: string) => {
+    ReactGA.event({ category: 'User', action })
+    window.location.href = 'https://educamix-dgl.vercel.app/'
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-
       <header className="w-full text-center py-16 px-6">
         <h1 className="text-4xl font-bold mb-4">Aprenda de Forma Divertida!</h1>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
           Teste seus conhecimentos com quizzes interativos e melhore seu aprendizado de maneira divertida e eficaz.
         </p>
-        <button onClick={() => ReactGA.event({ category: 'User', action: 'Clicked Sign Up Top' })} className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg text-lg shadow-md transition-all">
+        <button
+          onClick={() => handleRedirect('Clicked Button - Comece agora')}
+          className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg text-lg shadow-md transition-all"
+        >
           Comece Agora
         </button>
       </header>
@@ -52,7 +59,10 @@ export default function Home() {
       <section className="py-16 px-6 w-full max-w-3xl text-center">
         <h2 className="text-3xl font-semibold mb-4">Pronto para Começar?</h2>
         <p className="text-gray-400 mb-6">Junte-se a milhares de alunos que estão transformando seus estudos com nosso quiz educacional.</p>
-        <button onClick={() => ReactGA.event({ category: 'User', action: 'Clicked Sign Up bottom' })} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg text-lg shadow-md transition-all">
+        <button
+          onClick={() => handleRedirect('Clicked Button - Criar uma Conta Gratis')}
+          className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg text-lg shadow-md transition-all"
+        >
           Criar uma Conta Grátis
         </button>
       </section>
