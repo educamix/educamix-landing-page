@@ -11,7 +11,7 @@ export default function Home() {
 
   const handleRedirect = (action: string) => {
     ReactGA.event({ category: 'User', action })
-    window.location.href = 'https://educamix-dgl.vercel.app/'
+    window.location.href = 'https://educamix-dgl.vercel.app/login'
   }
 
   return (
